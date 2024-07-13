@@ -3,8 +3,7 @@
 <html lang="en">
     <head>
         <title>Collabstr | Creators</title>
-        <!-- ****** link home.css in line below ******* -->
-        <link rel="stylesheet" type="text/css" href="*** link home.css here ****">
+        <link rel="stylesheet" type="text/css" href="{%  static 'content_creator_app/css/home.css' %}">
         <meta charset="UTF-8">
         <style>
             /* latin */
@@ -55,11 +54,67 @@
                 </div>
             </div>
         </div>
-        <div id="content">
+        <ul class="tabs">
+            <li data-platform="">All</li>
+            <li data-platform="Instagram">Instagram</li>
+            <li data-platform="TikTok">TikTok</li>
+            <li data-platform="User Generated Content">User Generated Content</li>
+        </ul>
+        <div class="content-list" id="content-list">
             <!-- ******* display creators here ******** -->
+            {% for content in content_objects %}
+            <div class="content-item">
+                <img src="{{ content.url }}" />
+                <p>Name: {{ content.creator.name }}</p>
+                <p>Rating: {{ content.creator.rating }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Footer section -->
+        <div class="container my-5">
+            <footer class="bg-dark text-center text-white">
+                <div class="container p-4 pb-0">      
+                    <div class="text-center p-3" style="background-color: rgb(246 242 242 / 20%);">
+                        © 2024 Copyright:
+                        <a class="text-white" href="https://github.com/Msabalza730">Maryori Sabalza Mejia</a>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
     <script>
         // ***** put javascript/jquery/ajax here ******
+        $(document).ready(function() {
+            // Filter by platform
+            $('ul.tabs li').click(function(){
+                var platform = $(this).attr('data-platform');
+                if (platform === "") {
+                    window.location.href = window.location.href.split('?')[0]; // Actual page
+                } else {
+                    loadContent(platform);
+                }
+            });
+    
+            function loadContent(platform) {
+                $.ajax({
+                    url: '/filter/',
+                    data: {
+                        'platform': platform
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#content-list').empty();
+                        $.each(data, function(index, item) {
+                            var html = '<div class="content-item">';
+                            html += '<img src="' + item.url + '" />';
+                            html += '<p>Name: ' + item.creator_name + '</p>';
+                            html += '<p>Rating: ' + item.creator_rating + '</p>';
+                            html += '</div>';
+                            $('#content-list').append(html);
+                        });
+                    }
+                });
+            }
+        });
     </script>
 </html>

@@ -1,0 +1,161 @@
+ /* Include font-face and styles here as provided */
+ html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--black);
+}
+
+*:focus {
+    outline: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    display: none;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 85px;
+    height: 85px;
+}
+
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.full-logo-img {
+    width: 121px;
+    height: auto;
+    max-height: 35px;
+}
+
+#content {
+    width: 88%;
+    max-width: 1600px;
+    margin: 0 auto 8% auto;
+}
+
+/********* Your CSS Here **********/
+.tabs {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.tabs li {
+    display: inline;
+    margin-right: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.tabs li:hover {
+    background-color: #d0d0d0;
+}
+
+.content-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 6rem;
+}
+
+.content-item {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 25%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.content-item img {
+    width: 100%;
+    height: 320px;
+    position: relative;
+    border-radius: 9px;
+    background-color: black;
+    overflow: hidden;
+}
+
+.content-item p {
+    font-size: 90%;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* Centra el contenido del footer */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos específicos para el footer */
+.centered-footer {
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    background-color: #343a40; /* Color de fondo oscuro */
+    color: white; /* Texto blanco */
+    padding: 1rem; /* Espaciado alrededor del texto */
+    text-align: center; /* Alineación centrada del texto */
+}
+
+.centered-footer a {
+    color: #ffffff; /* Color de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+}
+
+.centered-footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+/********* ------------- **********/
+
+@media only screen and (max-width: 800px) {
+    .header {
+        min-height: 65px;
+        height: 65px;
+    }
+
+    .header-row {
+        width: 92%;
+    }
+
+    .full-logo-img {
+        width: 105px;
+        max-height: 28px;
+    }
+
+    #content {
+        width: 92%;
+        margin: 0 auto 15% auto;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .content-item {
+        width: 100%;
+    }
+}

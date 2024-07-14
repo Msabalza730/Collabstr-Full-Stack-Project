@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-e*l(!-$6^(c8e$y32#kb#gzkeyq$1o2wazud$cv64wk*1)=^!-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['flea-quality-loon.ngrok-free.app', '.vercel.app']
 
 
 # Application definition
